@@ -1,0 +1,9 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: k8s-system
+spec:
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./system
