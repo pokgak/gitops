@@ -35,5 +35,13 @@ roleRef:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: tailscale
+  name: tailscale-notification-controller
+  namespace: flux-system
+---
+# Copyright (c) Tailscale Inc & AUTHORS
+# SPDX-License-Identifier: BSD-3-Clause
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tailscale-webhook-receiver
   namespace: flux-system

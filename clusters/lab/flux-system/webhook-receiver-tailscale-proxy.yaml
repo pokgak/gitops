@@ -6,7 +6,7 @@ metadata:
   name: webhook-receiver-tailscale-proxy
   namespace: flux-system
 spec:
-  serviceAccountName: "tailscale"
+  serviceAccountName: "tailscale-webhook-receiver"
   initContainers:
     # In order to run as a proxy we need to enable IP Forwarding inside
     # the container. The `net.ipv4.ip_forward` sysctl is not allowlisted
