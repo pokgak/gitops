@@ -6,5 +6,6 @@ resources:
 - gotk-sync.yaml
 - tailscale-rbac.yaml
 - notification-controller-tailscale-proxy.yaml
+- webhook-receiver-tailscale-proxy.yaml
 - kustomization-system.yaml
 - kustomization-apps.yaml
