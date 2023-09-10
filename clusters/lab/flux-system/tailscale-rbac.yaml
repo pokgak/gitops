@@ -42,7 +42,7 @@ subjects:
   name: "tailscale-notification-controller"
 roleRef:
   kind: Role
-  name: tailscale
+  name: tailscale-notification-controller
   apiGroup: rbac.authorization.k8s.io
 ---
 # Copyright (c) Tailscale Inc & AUTHORS
@@ -57,7 +57,7 @@ subjects:
   name: "tailscale-webhook-receiver"
 roleRef:
   kind: Role
-  name: tailscale
+  name: tailscale-webhook-receiver
   apiGroup: rbac.authorization.k8s.io
 ---
 # Copyright (c) Tailscale Inc & AUTHORS
