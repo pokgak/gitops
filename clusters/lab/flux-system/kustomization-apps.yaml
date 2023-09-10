@@ -7,3 +7,4 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./apps
+  interval: 1m0s
