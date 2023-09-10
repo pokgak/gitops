@@ -27,6 +27,8 @@ spec:
           optional: true
     - name: TS_ROUTES
       value: "10.43.0.0/16,10.42.0.0/16"
+    - name: TS_ACCEPT_DNS
+      value: "true"
     securityContext:
       runAsUser: 1000
       runAsGroup: 1000
