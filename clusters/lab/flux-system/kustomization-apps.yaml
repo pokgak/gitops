@@ -7,5 +7,5 @@ spec:
     kind: GitRepository
     name: flux-system
   path: ./apps
-  interval: 10m0s
+  interval: 1m0s
   prune: true
