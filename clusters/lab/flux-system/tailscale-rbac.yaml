@@ -1,77 +1,77 @@
-# Copyright (c) Tailscale Inc & AUTHORS
-# SPDX-License-Identifier: BSD-3-Clause
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  name: tailscale-notification-controller
-  namespace: flux-system
-rules:
-- apiGroups: [""] # "" indicates the core API group
-  resources: ["secrets"]
-  # Create can not be restricted to a resource name.
-  verbs: ["create"]
-- apiGroups: [""] # "" indicates the core API group
-  resourceNames: ["tailscale-auth-notification-controller"]
-  resources: ["secrets"]
-  verbs: ["get", "update", "patch"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  name: tailscale-webhook-receiver
-  namespace: flux-system
-rules:
-- apiGroups: [""] # "" indicates the core API group
-  resources: ["secrets"]
-  # Create can not be restricted to a resource name.
-  verbs: ["create"]
-- apiGroups: [""] # "" indicates the core API group
-  resourceNames: ["tailscale-auth-webhook-receiver"]
-  resources: ["secrets"]
-  verbs: ["get", "update", "patch"]
----
-# Copyright (c) Tailscale Inc & AUTHORS
-# SPDX-License-Identifier: BSD-3-Clause
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: tailscale-notification-controller
-  namespace: flux-system
-subjects:
-- kind: ServiceAccount
-  name: "tailscale-notification-controller"
-roleRef:
-  kind: Role
-  name: tailscale-notification-controller
-  apiGroup: rbac.authorization.k8s.io
----
-# Copyright (c) Tailscale Inc & AUTHORS
-# SPDX-License-Identifier: BSD-3-Clause
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: tailscale-webhook-receiver
-  namespace: flux-system
-subjects:
-- kind: ServiceAccount
-  name: "tailscale-webhook-receiver"
-roleRef:
-  kind: Role
-  name: tailscale-webhook-receiver
-  apiGroup: rbac.authorization.k8s.io
----
-# Copyright (c) Tailscale Inc & AUTHORS
-# SPDX-License-Identifier: BSD-3-Clause
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: tailscale-notification-controller
-  namespace: flux-system
----
-# Copyright (c) Tailscale Inc & AUTHORS
-# SPDX-License-Identifier: BSD-3-Clause
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: tailscale-webhook-receiver
-  namespace: flux-system
+# # Copyright (c) Tailscale Inc & AUTHORS
+# # SPDX-License-Identifier: BSD-3-Clause
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: Role
+# metadata:
+#   name: tailscale-notification-controller
+#   namespace: flux-system
+# rules:
+# - apiGroups: [""] # "" indicates the core API group
+#   resources: ["secrets"]
+#   # Create can not be restricted to a resource name.
+#   verbs: ["create"]
+# - apiGroups: [""] # "" indicates the core API group
+#   resourceNames: ["tailscale-auth-notification-controller"]
+#   resources: ["secrets"]
+#   verbs: ["get", "update", "patch"]
+# ---
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: Role
+# metadata:
+#   name: tailscale-webhook-receiver
+#   namespace: flux-system
+# rules:
+# - apiGroups: [""] # "" indicates the core API group
+#   resources: ["secrets"]
+#   # Create can not be restricted to a resource name.
+#   verbs: ["create"]
+# - apiGroups: [""] # "" indicates the core API group
+#   resourceNames: ["tailscale-auth-webhook-receiver"]
+#   resources: ["secrets"]
+#   verbs: ["get", "update", "patch"]
+# ---
+# # Copyright (c) Tailscale Inc & AUTHORS
+# # SPDX-License-Identifier: BSD-3-Clause
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: RoleBinding
+# metadata:
+#   name: tailscale-notification-controller
+#   namespace: flux-system
+# subjects:
+# - kind: ServiceAccount
+#   name: "tailscale-notification-controller"
+# roleRef:
+#   kind: Role
+#   name: tailscale-notification-controller
+#   apiGroup: rbac.authorization.k8s.io
+# ---
+# # Copyright (c) Tailscale Inc & AUTHORS
+# # SPDX-License-Identifier: BSD-3-Clause
+# apiVersion: rbac.authorization.k8s.io/v1
+# kind: RoleBinding
+# metadata:
+#   name: tailscale-webhook-receiver
+#   namespace: flux-system
+# subjects:
+# - kind: ServiceAccount
+#   name: "tailscale-webhook-receiver"
+# roleRef:
+#   kind: Role
+#   name: tailscale-webhook-receiver
+#   apiGroup: rbac.authorization.k8s.io
+# ---
+# # Copyright (c) Tailscale Inc & AUTHORS
+# # SPDX-License-Identifier: BSD-3-Clause
+# apiVersion: v1
+# kind: ServiceAccount
+# metadata:
+#   name: tailscale-notification-controller
+#   namespace: flux-system
+# ---
+# # Copyright (c) Tailscale Inc & AUTHORS
+# # SPDX-License-Identifier: BSD-3-Clause
+# apiVersion: v1
+# kind: ServiceAccount
+# metadata:
+#   name: tailscale-webhook-receiver
+#   namespace: flux-system
