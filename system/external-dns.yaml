@@ -12,6 +12,7 @@ spec:
   valuesContent: |-
     provider: cloudflare
     policy: sync
+    logLevel: debug
     env:
       - name: CF_API_TOKEN
         valueFrom:
