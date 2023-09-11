@@ -12,6 +12,7 @@ spec:
   valuesContent: |-
     extraArgs:
       - --publish-internal-services
+      - --zone-id-filter=3835c3e80320e08ac9fadad86e96b3d5
     provider: cloudflare
     policy: sync
     logLevel: debug
