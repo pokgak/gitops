@@ -10,13 +10,12 @@ spec:
   targetNamespace: external-dns
   createNamespace: true
   valuesContent: |-
-    extraArgs:
-      - --publish-internal-services
     provider: cloudflare
     policy: sync
     logLevel: debug
     txtOwnerId: k8s.pokgak.xyz
     domainFilters: k8s.pokgak.xyz
+    extraArgs: ["--publish-internal-services"]
     env:
       - name: CF_API_TOKEN
         valueFrom:
