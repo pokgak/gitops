@@ -13,3 +13,8 @@ spec:
   chart: kube-prometheus-stack
   version: 50.3.1
   targetNamespace: monitoring
+  valuesContent: |-
+    prometheus:
+      service:
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: k8s.pokgak.xyz
