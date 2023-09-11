@@ -10,6 +10,8 @@ spec:
   targetNamespace: external-dns
   createNamespace: true
   valuesContent: |-
+    extraArgs:
+      - --publish-internal-services
     provider: cloudflare
     policy: sync
     logLevel: debug
