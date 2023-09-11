@@ -13,6 +13,7 @@ spec:
     provider: cloudflare
     policy: sync
     logLevel: debug
+    txtOwnerId: k8s.pokgak.xyz
     env:
       - name: CF_API_TOKEN
         valueFrom:
