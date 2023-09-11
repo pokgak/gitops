@@ -14,7 +14,7 @@ spec:
     policy: sync
     logLevel: debug
     txtOwnerId: k8s.pokgak.xyz
-    domainFilters: ["k8s.pokgak.xyz"]
+    domainFilters: ["pokgak.xyz"]
     extraArgs: ["--publish-internal-services"]
     env:
       - name: CF_API_TOKEN
