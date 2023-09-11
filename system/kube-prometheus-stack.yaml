@@ -18,3 +18,11 @@ spec:
       service:
         annotations:
           external-dns.alpha.kubernetes.io/internal-hostname: prometheus.k8s.pokgak.xyz
+    grafana:
+      service:
+        annotations:
+          external-dns.alpha.kubernetes.io/internal-hostname: grafana.k8s.pokgak.xyz
+    alertmanager:
+      service:
+        annotations:
+          external-dns.alpha.kubernetes.io/internal-hostname: alertmanager.k8s.pokgak.xyz
