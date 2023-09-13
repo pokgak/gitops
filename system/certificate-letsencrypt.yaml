@@ -16,3 +16,22 @@ spec:
   issuerRef:
     name: cloudflare-letsencrypt-staging
     kind: ClusterIssuer
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: pokgak-xyz-letsencrypt
+  namespace: cert-manager
+spec:
+  secretName: pokgak-xyz-letsencrypt-tls
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"  
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: ""
+      reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: ""
+  dnsNames:
+    - '*.k8s.pokgak.xyz'
+  issuerRef:
+    name: cloudflare-letsencrypt
+    kind: ClusterIssuer
