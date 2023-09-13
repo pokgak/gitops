@@ -20,6 +20,9 @@ spec:
     spec:
       chart: cert-manager
       version: ">=1.0.0 <2.0.0"
+      targetNamespace: cert-manager
+      install:
+        createNamespace: true
       sourceRef:
         kind: HelmRepository
         name: jetstack
