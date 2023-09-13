@@ -16,21 +16,21 @@ metadata:
   namespace: helm
 spec:
   interval: 5m
-  chart:
-    spec:
-      chart: cert-manager
-      version: ">=1.0.0 <2.0.0"
-      targetNamespace: cert-manager
-      sourceRef:
-        kind: HelmRepository
-        name: jetstack
-        namespace: helm
-      interval: 1m
+  targetNamespace: cert-manager
   install:
     createNamespace: true
   upgrade:
     remediation:
       remediateLastFailure: true
+  chart:
+    spec:
+      chart: cert-manager
+      version: ">=1.0.0 <2.0.0"
+      sourceRef:
+        kind: HelmRepository
+        name: jetstack
+        namespace: helm
+      interval: 1m
   test:
     enable: true
   values:
