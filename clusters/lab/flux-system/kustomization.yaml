@@ -4,8 +4,6 @@ namespace: flux-system
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-# - tailscale-rbac.yaml
-# - notification-controller-tailscale-proxy.yaml
-# - webhook-receiver-tailscale-proxy.yaml
+- github-status-alert.yaml
 - kustomization-system.yaml
 # - kustomization-apps.yaml
