@@ -8,6 +8,7 @@ spec:
   address: https://github.com/pokgak/gitops
   secretRef:
     name: github-token
+    namespace: flux-system
 ---
 apiVersion: notification.toolkit.fluxcd.io/v1beta2
 kind: Alert
@@ -17,6 +18,9 @@ metadata:
 spec:
   providerRef:
     name: github-status
+    namespace: flux-system
   eventSources:
     - kind: Kustomization
       name: flux-system
+      namespace: flux-system
+---
