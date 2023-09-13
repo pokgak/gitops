@@ -19,6 +19,8 @@ spec:
   targetNamespace: cert-manager
   install:
     createNamespace: true
+    remediation:
+      retries: -1
   upgrade:
     remediation:
       remediateLastFailure: true
