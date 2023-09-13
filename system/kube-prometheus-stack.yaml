@@ -1,19 +1,42 @@
-apiVersion: v1
-kind: Namespace
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
 metadata:
-  name: monitoring
+  name: prometheus-community
+  namespace: helm
+spec:
+  interval: 10m0s
+  provider: generic
+  timeout: 60s
+  url: https://prometheus-community.github.io/helm-charts
 ---
-apiVersion: helm.cattle.io/v1
-kind: HelmChart
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
 metadata:
   name: kube-prometheus-stack
-  namespace: kube-system
+  namespace: helm
 spec:
-  repo: https://prometheus-community.github.io/helm-charts
-  chart: kube-prometheus-stack
-  version: 50.3.1
+  releaseName: kube-prometheus-stack
+  interval: 5m
   targetNamespace: monitoring
-  valuesContent: |-
+  install:
+    createNamespace: true
+    remediation:
+      retries: -1
+  upgrade:
+    remediation:
+      remediateLastFailure: true
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: ">=50.0.0 <51.0.0"
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+        namespace: helm
+      interval: 1m
+  test:
+    enable: true
+  values:
     prometheus:
       service:
         annotations:
