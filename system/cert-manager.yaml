@@ -1,0 +1,38 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: jetstack
+  namespace: helm
+spec:
+  interval: 10m0s
+  provider: generic
+  timeout: 60s
+  url: https://charts.jetstack.io
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: cert-manager
+  namespace: helm
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: cert-manager
+      version: ">=4.0.0 <5.0.0"
+      sourceRef:
+        kind: HelmRepository
+        name: jetstack
+        namespace: helm
+      interval: 1m
+  upgrade:
+    remediation:
+      remediateLastFailure: true
+  test:
+    enable: true
+  values:
+    installCRDs: true
+    dns01RecursiveNameservers: "1.1.1.1:53,1.0.0.1:53"
+    dns01RecursiveNameserversOnly: true
+    prometheus:
+      enabled: true
