@@ -61,7 +61,7 @@ spec:
     service:
       name: kube-prometheus-stack-prometheus
       port:
-        number: 443
+        number: 9090
   tls:
   - hosts:
-    - prometheus
+    - prometheus.k8s
