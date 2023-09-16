@@ -1,0 +1,23 @@
+apiVersion: k0sctl.k0sproject.io/v1beta1
+kind: Cluster
+metadata:
+  name: labsV2
+spec:
+  hosts:
+  - ssh:
+      address: 100.85.154.134
+      user: pokgak
+      port: 22
+      keyPath: ~/.ssh/id_ed25519
+    role: controller
+    privateInterface: tailscale0
+  - ssh:
+      address: 100.100.59.28
+      user: pokgak
+      port: 22
+      keyPath: ~/.ssh/id_ed25519
+    role: worker
+    privateInterface: tailscale0
+  k0s:
+    version: 1.27.5+k0s.0
+    dynamicConfig: false
