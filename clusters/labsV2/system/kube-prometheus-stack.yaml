@@ -49,3 +49,18 @@ spec:
       service:
         annotations:
           external-dns.alpha.kubernetes.io/internal-hostname: alertmanager.k8s.pokgak.xyz
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kube-prometheus-stack-prometheus
+spec:
+  defaultBackend:
+    service:
+      name: kube-prometheus-stack-prometheus
+      port:
+        number: 9090
+  ingressClassName: tailscale
+  tls:
+  - hosts:
+    - prometheus
