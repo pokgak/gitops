@@ -64,4 +64,4 @@ spec:
         number: 9090
   tls:
   - hosts:
-    - prometheus.k8s
+    - prometheus
